@@ -1,0 +1,34 @@
+name: Leave Logic Tests
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'js/leave_logic.js'       # 로직 변경 시
+      - 'js/leave_logic.test.js'  # 테스트 변경 시
+      - 'hr-beyondearth.html'     # HTML 변경 시도 실행
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 코드 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Node.js 설치
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: 의존성 설치
+        run: npm install
+
+      - name: 테스트 실행
+        run: npm test
+
+      - name: 커버리지 리포트 (선택)
+        if: always()
+        run: npm run test:coverage
