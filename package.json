@@ -1,0 +1,22 @@
+{
+  "name": "beyond-earth-hr",
+  "version": "1.0.0",
+  "description": "BEYOND EARTH 휴가 관리 시스템 — 로직 테스트",
+  "scripts": {
+    "test": "jest --verbose",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "jest": {
+    "testMatch": [
+      "**/js/*.test.js"
+    ],
+    "coverageDirectory": "coverage",
+    "collectCoverageFrom": [
+      "js/leave_logic.js"
+    ]
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
