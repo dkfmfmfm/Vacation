@@ -1112,7 +1112,7 @@ async function initMSAL() {
       auth: {
         clientId: SP_CONFIG.clientId,
         authority: `https://login.microsoftonline.com/${SP_CONFIG.tenantId}`,
-        redirectUri: 'https://dkfmfmfm.github.io/Vacation/',
+        redirectUri: 'window.location.origin + window.location.pathname',
       },
       cache: { cacheLocation: 'localStorage', storeAuthStateInCookie: true }
     };
